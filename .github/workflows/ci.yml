@@ -18,6 +18,8 @@ jobs:
         run: ./gradlew build
       - name: Write Git Tag
         run: ./gradlew writeVersionGitTag
+      - name: Git push
+        run: git push origin --tags
       - uses: actions/upload-artifact@v2
         with:
           if-no-files-found: error
