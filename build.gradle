@@ -1,0 +1,31 @@
+buildscript {
+    repositories {
+        file("wrapper/gradle-git-versioning-plugin-0.3.0.jar")
+    }
+    dependencies {
+        classpath 'de.stefan_oltmann:gradle-git-versioning-plugin:0.3.0'
+    }
+}
+
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.5.10'
+}
+
+apply plugin: 'de.stefan_oltmann.git-versioning'
+
+group 'de.stefan_oltmann.plugintest'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
